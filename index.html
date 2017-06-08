@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My first vue app</title>
+  </head>
+
+  <body>
+
+   <div id="app" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
+   	<h3>{{h3}}</h3>
+   	<hr>
+  	<p>
+	<span v-bind:title="message">
+		{{welcome}}
+	</span>
+  	</p>
+  	<hr>
+  	<p>
+  		{{p}}
+  	</p>
+	
+  	<button v-on:click="reverseMessage">Reverse</button>
+  	<hr>
+  	<p> ...........{{cp}}........................................ </p>
+  	<div>{{ pudding }}</div>
+  	<p> ...........{{wp}}......................................... </p>
+  	<div>{{ pudding1 }}</div>
+  	<br>
+  	<p> ...........{{fib}}........................................ </p>
+	<div>
+		<input type="checkbox" id="nodejs" value="nodejs" v-model="checkedNames">
+		<label for="nodejs">Node.js</label>
+		<input type="checkbox" id="vuejs" value="vuejs" v-model="checkedNames">
+		<label for="vue">Vue.js</label>
+		<br>
+		<span>Checked names: {{ checkedNames }}</span>
+	</div>
+	<p> ...........{{lr}}.............................................. </p>
+	<ul>
+	  	<li v-for="item in items">
+	    {{ item.message }}
+	  	</li>
+	</ul>
+	<p> ...........{{cr}}.............................................. </p>
+	
+	<div v-if="type === 'F'">
+	  Female
+	</div>
+	<div v-else-if="type === 'M'">
+	  Male
+	</div>
+	<div v-else>
+	{{gender}}
+	</div>
+
+  </body>
+</html>
