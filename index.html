@@ -3,56 +3,125 @@
   <head>
     <meta charset="utf-8">
     <title>My first vue app</title>
+    <style>
+    	body {
+    		margin: 50px;
+    		padding: 50px;
+		    border-style: solid;
+		    border-width: 2px;
+    	}
+	    .myclass{
+			color:red;
+			font-weight: 700;
+		}
+    </style>
   </head>
 
   <body>
 
    <div id="app" v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">
-   	<h3>{{h3}}</h3>
-   	<hr>
-  	<p>
-	<span v-bind:title="message">
-		{{welcome}}
-	</span>
-  	</p>
-  	<hr>
-  	<p>
-  		{{p}}
-  	</p>
-	
-  	<button v-on:click="reverseMessage">Reverse</button>
-  	<hr>
-  	<p> ...........{{cp}}........................................ </p>
-  	<div>{{ pudding }}</div>
-  	<p> ...........{{wp}}......................................... </p>
-  	<div>{{ pudding1 }}</div>
-  	<br>
-  	<p> ...........{{fib}}........................................ </p>
-	<div>
-		<input type="checkbox" id="nodejs" value="nodejs" v-model="checkedNames">
-		<label for="nodejs">Node.js</label>
-		<input type="checkbox" id="vuejs" value="vuejs" v-model="checkedNames">
-		<label for="vue">Vue.js</label>
-		<br>
-		<span>Checked names: {{ checkedNames }}</span>
-	</div>
-	<p> ...........{{lr}}.............................................. </p>
-	<ul>
-	  	<li v-for="item in items">
-	    {{ item.message }}
-	  	</li>
-	</ul>
-	<p> ...........{{cr}}.............................................. </p>
-	
-	<div v-if="type === 'F'">
-	  Female
-	</div>
-	<div v-else-if="type === 'M'">
-	  Male
-	</div>
-	<div v-else>
-	{{gender}}
-	</div>
+   		<h1><center><u>EXPERIENCE WITH VUE JS</u></center></h1>
 
+		<div class="test" v-bind:class="{ 'myclass' : isClass }">
+		   	Binded class div
+		</div>
+
+	   	<h3>{{h3}}</h3>
+
+	   	<hr>
+	  	<p>
+		<span v-bind:title="message">
+			{{welcome}}
+		</span>
+	  	</p>
+	  	<hr>
+	  	<p>
+	  		{{p}}
+	  	</p>
+		
+	  	<button v-on:click="reverseMessage">Reverse</button>
+	  	<hr>
+	  	<form>
+	  		Fruit 1: <input v-model="fruit1" type="text"/>
+		    <br/>
+		    Fruit 2: <input v-model="fruit2" type="text"/>
+		    <br/>
+		    <strong>Pudding: {{ pudding }}</strong>
+	  	</form>
+	  	
+	  	<p> ...........{{wp}}......................................... </p>
+	  	<div>Pudding: {{ pudding1 }}</div>
+	  	
+	  	<br>
+	  	<hr/>
+	  	<p> ...........{{fib}}........................................ </p>
+		<div>
+			<input type="checkbox" id="nodejs" value="nodejs" v-model="checkedNames">
+			<label for="nodejs">Node.js</label>
+			<input type="checkbox" id="vuejs" value="vuejs" v-model="checkedNames">
+			<label for="vue">Vue.js</label>
+			<br>
+			<span>Checked names: {{ checkedNames }}</span>
+		</div>
+
+		<p> ...........{{lr}}.............................................. </p>
+		<ul>
+		  	<li style="list-style-type: none;" v-for="language in languages">
+		    {{ language.id }}){{ language.name }}
+		  	</li>
+		</ul>
+
+		<p> ...........{{cr}}.............................................. </p>
+
+		<hr/>
+		<p><u>Grading System</u></p>
+		Enter your Marks: <input type="text" v-model="marks"/>
+	    <br/>
+	    <strong>Your Grade is: {{ grade }}</strong>
+	    <hr/>
+		
+		<p>Props</p>
+		<!-- prop usage in a template -->
+		<child message="Props are Awesome!"></child>
+		<br>
+
+		<p>Dynamic props and props validation</p>
+		<div>
+			<input v-model='messageOne'>
+			<br>
+			<dynamic-child :message-one="messageOne"></dynamic-child>
+		</div>
+		<br>
+
+		<hr/>
+		<form>
+  		 	<p><u>Summation System</u></p>
+  		 	<input v-focus v-model="number1" type="number"/>
+		    <input v-model="number2" type="number"/>
+		    <button @click="summation">Sum</button>
+		    <br/>
+		    <strong>Sum: {{ sum }}</strong>
+
+		    <p><u>Calculator</u></p>
+		    <input v-focus v-model="firstnumber" type="number"/>
+		    <input v-model="secondnumber" type="number"/>
+		    <select v-model="selected">
+			  <option disabled value="">Please select one</option>
+			  <option>Addition</option>
+			  <option>Subtraction</option>
+			  <option>Division</option>
+			  <option>Multiplication</option>
+			</select>
+			<br/>
+		    <strong>Answer: {{ calculator }}</strong>
+	  	</form>
+	  	<hr/>
+
+	  	<br>
+		<div v-custom-directive:event.time.date="welcome"></div>
+		<br><br>
+		<center><i>Created by Dianah Amimo.</i></center>
+
+	</div>
   </body>
 </html>
